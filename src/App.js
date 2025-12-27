@@ -97,8 +97,13 @@ export default function QuizApp() {
       <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
         <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full text-center text-gray-100">
           <div className="mb-6">
-            <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-4xl">🧠</span>
+            <div className="w-20 h-20 bg-indigo-600 rounded-full overflow-hidden flex items-center justify-center mx-auto mb-4">
+              <img
+                src={`${process.env.PUBLIC_URL}/srk.jpg`}
+                alt="SRK"
+                className="w-full h-full object-cover"
+                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `${process.env.PUBLIC_URL}/logo192.png`; }}
+              />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">SRK Fan Quiz</h1>
             <p className="text-gray-300">How big a fan are you?</p>

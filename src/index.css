@@ -7,6 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent white flash on macOS overscroll by making the document background match the app */
+html, body, #root {
+  height: 100%;
+  background: linear-gradient(135deg,#0b2540 0%,#081730 50%,#0b1320 100%);
+  color: #e6eef8;
+}
+
+/* Remove overscroll bounce entirely (disable elastic scroll) */
+html, body, #root {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
