@@ -1,3 +1,39 @@
+# Quiz Master (QuickQuiz)
+
+Quiz Master is a lightweight, client-side React quiz application that runs multiple rounds of short quizzes. It ships with example questions in `src/App.js` (the `QUIZ_DATA` constant) so you can try the app immediately and easily customize questions or rounds.
+
+**Features**
+- **Multi-round quizzes**: configurable number of rounds and questions per round.
+- **Per-round and overall scoring**: see round results and a final cumulative score.
+- **Start / Restart**: start the quiz, restart a round, or start over completely.
+- **Immediate feedback**: answers are marked correct/incorrect as you submit them.
+
+**How it works (implementation notes)**
+- The UI and logic live in `src/App.js`.
+- Quiz content is provided via a `QUIZ_DATA` constant at the top of `src/App.js`.
+- The app tracks `currentRound`, `currentQuestion`, `roundScore`, and `totalScore` in React state.
+
+**Quick Local Commands**
+- Install dependencies: `npm install`
+- Run in development: `npm start` (open http://localhost:3000)
+- Build for production: `npm run build`
+- Run tests: `npm test`
+
+**Customize the quiz**
+- Edit the `QUIZ_DATA` object in `src/App.js` to change rounds, questions, options, and correct answers.
+- `QUIZ_DATA` fields you may want to change: `questionsPerRound`, `totalRounds`, and each round's `questions` array.
+
+**Where to look in the code**
+- Start page and quiz screens: `src/App.js`
+- Styling: uses Tailwind-style classes in the components (no separate CSS needed for the demo build assets).
+
+If you'd like, I can:
+- extract `QUIZ_DATA` to a JSON file and load it dynamically,
+- add an editor to manage questions in-app, or
+- wire the app to persist scores to localStorage or a backend.
+
+----
+_This README was updated to reflect the actual app behavior defined in `src/App.js`._
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

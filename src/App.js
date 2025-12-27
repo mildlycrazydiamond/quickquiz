@@ -192,51 +192,51 @@ export default function QuizApp() {
 
   const getOptionClass = (optionIndex) => {
     if (!isAnswered) {
-      return "bg-white hover:bg-indigo-50 border-gray-200 hover:border-indigo-300 cursor-pointer";
+      return "bg-slate-700 hover:bg-slate-600 border-slate-600 hover:border-blue-500 cursor-pointer text-gray-100";
     }
     
     if (optionIndex === currentQuestionData.correctAnswer) {
-      return "bg-green-50 border-green-500 cursor-default";
+      return "bg-green-900 border-green-500 cursor-default text-green-200";
     }
     
     if (optionIndex === selectedAnswer && optionIndex !== currentQuestionData.correctAnswer) {
-      return "bg-red-50 border-red-500 cursor-default";
+      return "bg-red-900 border-red-500 cursor-default text-red-200";
     }
     
-    return "bg-gray-50 border-gray-200 cursor-default opacity-60";
+    return "bg-slate-700 border-slate-600 cursor-default opacity-80 text-gray-300";
   };
 
   // Start screen
   if (!gameStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full text-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full text-center text-gray-100">
           <div className="mb-6">
             <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-4xl">🧠</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Quiz Master</h1>
-            <p className="text-gray-600">Test your knowledge across multiple rounds</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">Quiz Master</h1>
+            <p className="text-gray-300">Test your knowledge across multiple rounds</p>
           </div>
           
-          <div className="bg-indigo-50 rounded-lg p-6 mb-8 space-y-3">
+          <div className="bg-slate-700 rounded-lg p-6 mb-8 space-y-3 text-gray-100">
             <div className="flex items-center justify-between">
-              <span className="text-gray-700">Total Rounds</span>
-              <span className="font-semibold text-indigo-600">{QUIZ_DATA.totalRounds}</span>
+              <span className="text-gray-300">Total Rounds</span>
+              <span className="font-semibold text-blue-300">{QUIZ_DATA.totalRounds}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-700">Questions per Round</span>
-              <span className="font-semibold text-indigo-600">{QUIZ_DATA.questionsPerRound}</span>
+              <span className="text-gray-300">Questions per Round</span>
+              <span className="font-semibold text-blue-300">{QUIZ_DATA.questionsPerRound}</span>
             </div>
-            <div className="flex items-center justify-between border-t border-indigo-200 pt-3">
-              <span className="text-gray-700 font-medium">Total Questions</span>
-              <span className="font-bold text-indigo-600">{totalQuestions}</span>
+            <div className="flex items-center justify-between border-t border-slate-600 pt-3">
+              <span className="text-gray-300 font-medium">Total Questions</span>
+              <span className="font-bold text-blue-300">{totalQuestions}</span>
             </div>
           </div>
           
           <button
             onClick={() => setGameStarted(true)}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl"
           >
             Start Quiz
           </button>
@@ -250,27 +250,27 @@ export default function QuizApp() {
     const percentage = Math.round((totalScore / totalQuestions) * 100);
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full text-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full text-center text-gray-100">
           <div className="mb-6">
-            <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-5xl">🏆</span>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Quiz Complete!</h2>
-            <p className="text-gray-600">Congratulations on completing all rounds</p>
+            <h2 className="text-3xl font-bold text-gray-100 mb-2">Quiz Complete!</h2>
+            <p className="text-gray-300">Congratulations on completing all rounds</p>
           </div>
           
-          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 mb-8">
-            <div className="text-6xl font-bold text-indigo-600 mb-2">{percentage}%</div>
-            <div className="text-xl text-gray-700 mb-4">{totalScore} / {totalQuestions}</div>
-            <div className="text-sm text-gray-600">
+          <div className="bg-slate-700 rounded-xl p-8 mb-8">
+            <div className="text-6xl font-bold text-blue-300 mb-2">{percentage}%</div>
+            <div className="text-xl text-gray-200 mb-4">{totalScore} / {totalQuestions}</div>
+            <div className="text-sm text-gray-300">
               {percentage >= 80 ? "Outstanding! 🌟" : percentage >= 60 ? "Great job! 👏" : percentage >= 40 ? "Good effort! 💪" : "Keep practicing! 📚"}
             </div>
           </div>
           
           <button
             onClick={handleStartOver}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
             <Home size={20} />
             Start Over
@@ -285,26 +285,26 @@ export default function QuizApp() {
     const percentage = Math.round((roundScore / currentRoundData.questions.length) * 100);
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full">
-          <div className="text-center mb-8">
-            <div className="inline-block bg-indigo-100 rounded-full px-4 py-2 mb-4">
-              <span className="text-sm font-medium text-indigo-700">Round {currentRound} of {QUIZ_DATA.totalRounds}</span>
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full">
+          <div className="text-center mb-8 text-gray-100">
+            <div className="inline-block bg-slate-700 rounded-full px-4 py-2 mb-4">
+              <span className="text-sm font-medium text-blue-300">Round {currentRound} of {QUIZ_DATA.totalRounds}</span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Round Complete!</h2>
-            <p className="text-gray-600">{currentRoundData.name}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-100 mb-2">Round Complete!</h2>
+            <p className="text-gray-300">{currentRoundData.name}</p>
           </div>
           
-          <div className="bg-indigo-50 rounded-xl p-6 mb-8 text-center">
-            <div className="text-5xl font-bold text-indigo-600 mb-2">{roundScore} / {currentRoundData.questions.length}</div>
-            <div className="text-gray-600">Questions Correct</div>
-            <div className="mt-4 text-2xl font-semibold text-gray-700">{percentage}%</div>
+          <div className="bg-slate-700 rounded-xl p-6 mb-8 text-center text-gray-100">
+            <div className="text-5xl font-bold text-blue-300 mb-2">{roundScore} / {currentRoundData.questions.length}</div>
+            <div className="text-gray-300">Questions Correct</div>
+            <div className="mt-4 text-2xl font-semibold text-gray-200">{percentage}%</div>
           </div>
           
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+          <div className="bg-slate-700/60 rounded-lg p-4 mb-6 text-gray-200">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Overall Progress</span>
-              <span className="font-semibold text-gray-700">{totalScore} / {totalQuestions}</span>
+              <span className="text-gray-300">Overall Progress</span>
+              <span className="font-semibold text-gray-200">{totalScore} / {totalQuestions}</span>
             </div>
           </div>
           
@@ -312,7 +312,7 @@ export default function QuizApp() {
             {currentRound < QUIZ_DATA.totalRounds ? (
               <button
                 onClick={handleNextRound}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
               >
                 Next Round
                 <ArrowRight size={20} />
@@ -320,7 +320,7 @@ export default function QuizApp() {
             ) : (
               <button
                 onClick={handleNextRound}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
               >
                 View Final Results
                 <ArrowRight size={20} />
@@ -329,7 +329,7 @@ export default function QuizApp() {
             
             <button
               onClick={handleRestartRound}
-              className="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-4 rounded-xl border-2 border-gray-200 transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-slate-700 hover:bg-slate-600 text-gray-100 font-semibold py-4 rounded-xl border-2 border-slate-600 transition-colors flex items-center justify-center gap-2"
             >
               <RotateCcw size={20} />
               Restart Round
@@ -337,7 +337,7 @@ export default function QuizApp() {
             
             <button
               onClick={handleStartOver}
-              className="w-full bg-white hover:bg-gray-50 text-gray-500 font-medium py-3 rounded-xl border border-gray-200 transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-transparent hover:bg-slate-700 text-gray-300 font-medium py-3 rounded-xl border border-slate-600 transition-colors flex items-center justify-center gap-2"
             >
               <Home size={18} />
               Start Over
@@ -350,16 +350,16 @@ export default function QuizApp() {
 
   // Quiz question screen
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl w-full">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
+      <div className="bg-slate-800 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full text-gray-100">
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
-            <div className="inline-block bg-indigo-100 rounded-full px-4 py-2">
-              <span className="text-sm font-medium text-indigo-700">Round {currentRound} of {QUIZ_DATA.totalRounds}</span>
+            <div className="inline-block bg-slate-700 rounded-full px-4 py-2">
+              <span className="text-sm font-medium text-blue-300">Round {currentRound} of {QUIZ_DATA.totalRounds}</span>
             </div>
-            <div className="text-sm text-gray-600">
-              Score: <span className="font-semibold text-indigo-600">{totalScore}</span>
+            <div className="text-sm text-gray-300">
+              Score: <span className="font-semibold text-blue-300">{totalScore}</span>
             </div>
           </div>
           
@@ -367,9 +367,9 @@ export default function QuizApp() {
           
           {/* Progress bar */}
           <div className="flex items-center gap-2 mb-2">
-            <div className="flex-1 bg-gray-200 rounded-full h-2">
+            <div className="flex-1 bg-slate-700 rounded-full h-2">
               <div 
-                className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
+                className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${((currentQuestion + 1) / currentRoundData.questions.length) * 100}%` }}
               />
             </div>
@@ -381,7 +381,7 @@ export default function QuizApp() {
 
         {/* Question */}
         <div className="mb-8">
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-100 mb-6">
             {currentQuestionData.question}
           </h2>
 
@@ -395,13 +395,13 @@ export default function QuizApp() {
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${getOptionClass(index)}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-gray-700">{option}</span>
+                  <span className="font-medium text-gray-100">{option}</span>
                   {isAnswered && (
                     <span>
                       {index === currentQuestionData.correctAnswer ? (
-                        <CheckCircle className="text-green-600" size={24} />
+                        <CheckCircle className="text-green-300" size={24} />
                       ) : index === selectedAnswer ? (
-                        <XCircle className="text-red-600" size={24} />
+                        <XCircle className="text-red-300" size={24} />
                       ) : null}
                     </span>
                   )}
@@ -415,7 +415,7 @@ export default function QuizApp() {
         {isAnswered && (
           <button
             onClick={handleNextQuestion}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
             {currentQuestion < currentRoundData.questions.length - 1 ? 'Next Question' : 'Finish Round'}
             <ArrowRight size={20} />
