@@ -1,121 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, XCircle, ArrowRight, RotateCcw, Home } from 'lucide-react';
-
-// Dummy quiz data - easily replaceable
-const QUIZ_DATA = {
-  questionsPerRound: 5,
-  totalRounds: 3,
-  rounds: [
-    {
-      id: 1,
-      name: "General Knowledge",
-      questions: [
-        {
-          id: 1,
-          question: "What is the capital of France?",
-          options: ["London", "Berlin", "Paris", "Madrid"],
-          correctAnswer: 2
-        },
-        {
-          id: 2,
-          question: "Which planet is known as the Red Planet?",
-          options: ["Venus", "Mars", "Jupiter", "Saturn"],
-          correctAnswer: 1
-        },
-        {
-          id: 3,
-          question: "What is the largest ocean on Earth?",
-          options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-          correctAnswer: 3
-        },
-        {
-          id: 4,
-          question: "Who painted the Mona Lisa?",
-          options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
-          correctAnswer: 1
-        },
-        {
-          id: 5,
-          question: "What is the smallest country in the world?",
-          options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
-          correctAnswer: 1
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: "Science & Technology",
-      questions: [
-        {
-          id: 6,
-          question: "What does CPU stand for?",
-          options: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Central Processor Unity"],
-          correctAnswer: 1
-        },
-        {
-          id: 7,
-          question: "What is the speed of light?",
-          options: ["300,000 km/s", "150,000 km/s", "450,000 km/s", "200,000 km/s"],
-          correctAnswer: 0
-        },
-        {
-          id: 8,
-          question: "What is H2O commonly known as?",
-          options: ["Oxygen", "Hydrogen", "Water", "Carbon Dioxide"],
-          correctAnswer: 2
-        },
-        {
-          id: 9,
-          question: "Who developed the theory of relativity?",
-          options: ["Isaac Newton", "Albert Einstein", "Stephen Hawking", "Niels Bohr"],
-          correctAnswer: 1
-        },
-        {
-          id: 10,
-          question: "What is the powerhouse of the cell?",
-          options: ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
-          correctAnswer: 2
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: "History & Culture",
-      questions: [
-        {
-          id: 11,
-          question: "In which year did World War II end?",
-          options: ["1943", "1944", "1945", "1946"],
-          correctAnswer: 2
-        },
-        {
-          id: 12,
-          question: "Who was the first President of the United States?",
-          options: ["Thomas Jefferson", "George Washington", "Abraham Lincoln", "John Adams"],
-          correctAnswer: 1
-        },
-        {
-          id: 13,
-          question: "What ancient wonder was located in Alexandria?",
-          options: ["Hanging Gardens", "Colossus", "Lighthouse", "Pyramid"],
-          correctAnswer: 2
-        },
-        {
-          id: 14,
-          question: "Which civilization built Machu Picchu?",
-          options: ["Aztec", "Maya", "Inca", "Olmec"],
-          correctAnswer: 2
-        },
-        {
-          id: 15,
-          question: "In which year did the Berlin Wall fall?",
-          options: ["1987", "1988", "1989", "1990"],
-          correctAnswer: 2
-        }
-      ]
-    }
-  ]
-};
+import { QUIZ_DATA } from './quizData';
 
 export default function QuizApp() {
   const [currentRound, setCurrentRound] = useState(1);
@@ -215,8 +100,8 @@ export default function QuizApp() {
             <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-4xl">🧠</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">Quiz Master</h1>
-            <p className="text-gray-300">Test your knowledge across multiple rounds</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">SRK Fan Quiz</h1>
+            <p className="text-gray-300">How big a fan are you?</p>
           </div>
           
           <div className="bg-slate-700 rounded-lg p-6 mb-8 space-y-3 text-gray-100">
